@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8" />
+<title>بطاقة تهنئة 2026</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  body { font-family: "Tahoma", Arial, sans-serif; background:#f4f4f4; text-align:center; direction:rtl; padding:18px; }
+  h2 { margin-bottom:8px; }
+  .controls { margin:16px auto; }
+  input { padding:8px; margin:6px; width:220px; box-sizing:border-box; }
+  button { padding:10px 16px; margin:6px; background:#0b5394; color:#fff; border:0; border-radius:6px; cursor:pointer; font-size:16px; }
+</style>
+</head>
+<body>
+
+<h2>بطاقة تهنئه 2026</h2>
+
+<div class="controls">
+  <input id="nameInput" type="text" placeholder="اكتب اسمك">
+  <input id="titleInput" type="text" placeholder="مسماك الوظيفي">
+  <br>
+  <button id="showBtn">عرض البطاقة</button>
+</div>
+
+<script>
+document.getElementById('showBtn').addEventListener('click', function() {
+
+  const name = document.getElementById('nameInput').value.trim() || 'اسمك هنا';
+  const title = document.getElementById('titleInput').value.trim() || 'مسمى وظيفي';
+
+  // HTML البطاقة في صفحة جديدة
+  const cardHTML = `
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8" />
+<title>بطاقتك</title>
+<style>
+  body { text-align:center; font-family: Tahoma; direction:rtl; background:#f4f4f4; padding:30px; }
+  .card { position:relative; display:inline-block; max-width:350px; border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+  .card img { width:100%; display:block; }
+  .overlay {
+    position:absolute;
+    bottom:0; left:0; right:0;
+    padding:18px;
+    text-align:center;
+    background:linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0)); /* خلفية فاتحة */
+  }
+
+  /* ←← اللون المطلوب #592e01 */
+  .name { 
+    font-size:20px; 
+    font-weight:bold; 
+    color:#592e01;
+  }
+  .title { 
+    font-size:15px; 
+    margin-top:5px; 
+    color:#592e01;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <img src="newyear.svg">
+  <div class="overlay">
+    <div class="name">${name}</div>
+    <div class="title">${title}</div>
+  </div>
+</div>
+
+</body>
+</html>
+`;
+
+  const newWin = window.open();
+  newWin.document.write(cardHTML);
+  newWin.document.close();
+});
+</script>
+
+</body>
+</html>
